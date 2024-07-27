@@ -51,7 +51,7 @@ namespace BowlingGame.Tests.StepDefinitions
         [Then("le score total de (.*) devrait être (.*)")]
         public void ThenLeScoreTotalDevraitEtre(string playerName, int expectedScore)
         {
-            playerName = playerName.Trim(); // Trim to ensure key matching consistency
+            playerName = playerName.Trim();
             int actualScore = playerScores[playerName];
             Assert.AreEqual(expectedScore, actualScore);
         }

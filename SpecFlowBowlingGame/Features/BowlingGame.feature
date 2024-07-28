@@ -73,7 +73,7 @@ When les lancers des joueurs sont:
 | Joueur 3 | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 10, 1    |
 Then une erreur devrait se déclencher pour Joueur 1 avec le message "La frame 2 est semi-incomplète."
 And une erreur devrait se déclencher pour Joueur 2 avec le message "La frame 10 est semi-incomplète pour un spare."
-And une erreur devrait se déclencher pour Joueur 3 avec le message "La frame 10 semi-incomplète pour un strike."
+And une erreur devrait se déclencher pour Joueur 3 avec le message "La frame 10 est semi-incomplète pour un strike."
 
 Scenario: Partie avec un nombre de frames supérieur à 10
 Given un nouveau jeu de bowling commence

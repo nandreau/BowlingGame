@@ -12,6 +12,7 @@ namespace BowlingGame.Tests.StepDefinitions
         private Dictionary<string, int> playerScores;
         private Dictionary<string, string> playerErrors;
 
+        // Initialisation avant chaque scénario de test
         [Given("un nouveau jeu de bowling commence")]
         public void GivenUnNouveauJeuDeBowlingAvecDeuxJoueurs()
         {
@@ -20,6 +21,7 @@ namespace BowlingGame.Tests.StepDefinitions
             playerErrors = new Dictionary<string, string>();
         }
 
+        // Traitement des lancers des joueurs à partir du tableau fourni
         [When("les lancers des joueurs sont:")]
         public void WhenLesLancersDesJoueursSont(Table table)
         {
@@ -43,13 +45,11 @@ namespace BowlingGame.Tests.StepDefinitions
 
                 try
                 {
-                    // Reset game for each player
                     game = new BowlingGame();
                     foreach (var frameRolls in frames)
                     {
                         game.Roll(frameRolls);
                     }
-                    // Store the score for the current player
                     playerScores[playerName] = game.Score();
                 }
                 catch (Exception ex)
@@ -59,26 +59,31 @@ namespace BowlingGame.Tests.StepDefinitions
             }
         }
 
+        // Vérification du score total d'un joueur
         [Then("le score total de (.*) devrait être (.*)")]
         public void ThenLeScoreTotalDevraitEtre(string playerName, int expectedScore)
         {
             playerName = playerName.Trim();
             if (playerErrors.ContainsKey(playerName))
             {
+                // Échec du test si une erreur a été enregistrée pour le joueur
                 Assert.Fail($"Erreur pour le joueur {playerName}: {playerErrors[playerName]}");
             }
             else
             {
                 int actualScore = playerScores[playerName];
+                // Vérification que le score attendu correspond au score calculé
                 Assert.AreEqual(expectedScore, actualScore);
             }
         }
 
+        // Vérification que le message d'erreur attendu a été déclenché pour un joueur
         [Then("une erreur devrait se déclencher pour (.*) avec le message \"(.*)\"")]
         public void ThenUneErreurDevraitSeDeclencherPourAvecLeMessage(string playerName, string expectedMessage)
         {
             playerName = playerName.Trim();
             Assert.IsTrue(playerErrors.ContainsKey(playerName), $"Aucune erreur déclenchée pour le joueur {playerName}");
+            // Vérification que le message d'erreur correspond à celui attendu
             Assert.AreEqual(expectedMessage, playerErrors[playerName]);
         }
     }

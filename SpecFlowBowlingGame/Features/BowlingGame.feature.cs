@@ -74,12 +74,12 @@ namespace SpecFlowBowlingGame.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie avec seulement des strikes et des spares")]
-        public virtual void PartieAvecSeulementDesStrikesEtDesSpares()
+        [NUnit.Framework.DescriptionAttribute("Partie sans strikes ni spares")]
+        public virtual void PartieSansStrikesNiSpares()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec seulement des strikes et des spares", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie sans strikes ni spares", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -117,48 +117,48 @@ testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechT
                             "frame 10"});
                 table1.AddRow(new string[] {
                             "Joueur 1",
-                            "10",
-                            "10",
-                            "10",
-                            "10",
-                            "10",
-                            "10",
-                            "10",
-                            "10",
-                            "10",
-                            "10, 10, 10"});
+                            "3, 5",
+                            "2, 4",
+                            "6, 0",
+                            "3, 5",
+                            "2, 4",
+                            "6, 0",
+                            "3, 5",
+                            "2, 4",
+                            "6, 0",
+                            "3, 6"});
                 table1.AddRow(new string[] {
                             "Joueur 2",
-                            "9, 1",
-                            "9, 1",
-                            "9, 1",
-                            "9, 1",
-                            "9, 1",
-                            "9, 1",
-                            "9, 1",
-                            "9, 1",
-                            "9, 1",
-                            "9, 1, 10"});
+                            "2, 4",
+                            "6, 3",
+                            "7, 0",
+                            "5, 2",
+                            "8, 1",
+                            "9, 0",
+                            "3, 6",
+                            "7, 2",
+                            "5, 3",
+                            "6, 1"});
 #line 6
 testRunner.When("les lancers des joueurs sont:", ((string)(null)), table1, "When ");
 #line hidden
 #line 10
-testRunner.Then("le score total de Joueur 1 devrait être 300", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("le score total de Joueur 1 devrait être 69", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 11
-testRunner.And("le score total de Joueur 2 devrait être 191", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("le score total de Joueur 2 devrait être 80", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie sans strikes ni spares")]
-        public virtual void PartieSansStrikesNiSpares()
+        [NUnit.Framework.DescriptionAttribute("Partie avec un spare")]
+        public virtual void PartieAvecUnSpare()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie sans strikes ni spares", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un spare", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -196,7 +196,8 @@ testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechT
                             "frame 10"});
                 table2.AddRow(new string[] {
                             "Joueur 1",
-                            "3, 5",
+                            "5, 5",
+                            "3, 4",
                             "2, 4",
                             "6, 0",
                             "3, 5",
@@ -204,11 +205,11 @@ testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechT
                             "6, 0",
                             "3, 5",
                             "2, 4",
-                            "6, 0",
-                            "3, 6"});
+                            "6, 0"});
                 table2.AddRow(new string[] {
                             "Joueur 2",
-                            "2, 4",
+                            "4, 6",
+                            "2, 3",
                             "6, 3",
                             "7, 0",
                             "5, 2",
@@ -216,28 +217,27 @@ testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechT
                             "9, 0",
                             "3, 6",
                             "7, 2",
-                            "5, 3",
-                            "6, 1"});
+                            "5, 3"});
 #line 15
 testRunner.When("les lancers des joueurs sont:", ((string)(null)), table2, "When ");
 #line hidden
 #line 19
-testRunner.Then("le score total de Joueur 1 devrait être 69", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("le score total de Joueur 1 devrait être 72", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 20
-testRunner.And("le score total de Joueur 2 devrait être 80", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("le score total de Joueur 2 devrait être 84", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie avec un spare")]
-        public virtual void PartieAvecUnSpare()
+        [NUnit.Framework.DescriptionAttribute("Partie avec un strike")]
+        public virtual void PartieAvecUnStrike()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un spare", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un strike", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 22
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -275,48 +275,48 @@ testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechT
                             "frame 10"});
                 table3.AddRow(new string[] {
                             "Joueur 1",
-                            "5, 5",
+                            "10",
                             "3, 4",
-                            "2, 4",
                             "6, 0",
                             "3, 5",
                             "2, 4",
                             "6, 0",
                             "3, 5",
                             "2, 4",
-                            "6, 0"});
+                            "6, 0",
+                            "3, 5"});
                 table3.AddRow(new string[] {
                             "Joueur 2",
-                            "4, 6",
-                            "2, 3",
-                            "6, 3",
+                            "10",
+                            "3, 5",
                             "7, 0",
                             "5, 2",
                             "8, 1",
                             "9, 0",
                             "3, 6",
                             "7, 2",
-                            "5, 3"});
+                            "5, 3",
+                            "6, 1"});
 #line 24
 testRunner.When("les lancers des joueurs sont:", ((string)(null)), table3, "When ");
 #line hidden
 #line 28
-testRunner.Then("le score total de Joueur 1 devrait être 72", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("le score total de Joueur 1 devrait être 78", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 29
-testRunner.And("le score total de Joueur 2 devrait être 84", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("le score total de Joueur 2 devrait être 91", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie avec un strike")]
-        public virtual void PartieAvecUnStrike()
+        [NUnit.Framework.DescriptionAttribute("Partie avec seulement des strikes et des spares")]
+        public virtual void PartieAvecSeulementDesStrikesEtDesSpares()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un strike", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec seulement des strikes et des spares", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 31
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -355,35 +355,35 @@ testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechT
                 table4.AddRow(new string[] {
                             "Joueur 1",
                             "10",
-                            "3, 4",
-                            "6, 0",
-                            "3, 5",
-                            "2, 4",
-                            "6, 0",
-                            "3, 5",
-                            "2, 4",
-                            "6, 0",
-                            "3, 5"});
+                            "10",
+                            "10",
+                            "10",
+                            "10",
+                            "10",
+                            "10",
+                            "10",
+                            "10",
+                            "10, 10, 10"});
                 table4.AddRow(new string[] {
                             "Joueur 2",
-                            "10",
-                            "3, 5",
-                            "7, 0",
-                            "5, 2",
-                            "8, 1",
-                            "9, 0",
-                            "3, 6",
-                            "7, 2",
-                            "5, 3",
-                            "6, 1"});
+                            "9, 1",
+                            "9, 1",
+                            "9, 1",
+                            "9, 1",
+                            "9, 1",
+                            "9, 1",
+                            "9, 1",
+                            "9, 1",
+                            "9, 1",
+                            "9, 1, 10"});
 #line 33
 testRunner.When("les lancers des joueurs sont:", ((string)(null)), table4, "When ");
 #line hidden
 #line 37
-testRunner.Then("le score total de Joueur 1 devrait être 78", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("le score total de Joueur 1 devrait être 300", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 38
-testRunner.And("le score total de Joueur 2 devrait être 91", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("le score total de Joueur 2 devrait être 191", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -718,20 +718,20 @@ testRunner.And("une erreur devrait se déclencher pour Joueur 2 avec le message 
                         "emi-incomplète pour un spare.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 76
-testRunner.And("une erreur devrait se déclencher pour Joueur 3 avec le message \"La frame 10 semi-" +
-                        "incomplète pour un strike.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("une erreur devrait se déclencher pour Joueur 3 avec le message \"La frame 10 est s" +
+                        "emi-incomplète pour un strike.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie avec un nombre de frames supérieur a 10")]
+        [NUnit.Framework.DescriptionAttribute("Partie avec un nombre de frames supérieur à 10")]
         public virtual void PartieAvecUnNombreDeFramesSuperieurA10()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un nombre de frames supérieur a 10", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un nombre de frames supérieur à 10", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 78
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -795,12 +795,12 @@ testRunner.Then("une erreur devrait se déclencher pour Joueur 1 avec le message
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie avec un nombre de frames inferieur a 10")]
+        [NUnit.Framework.DescriptionAttribute("Partie avec un nombre de frames inferieur à 10")]
         public virtual void PartieAvecUnNombreDeFramesInferieurA10()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un nombre de frames inferieur a 10", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un nombre de frames inferieur à 10", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 85
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

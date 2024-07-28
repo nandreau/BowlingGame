@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json;
 
 namespace BowlingGame
 {
@@ -8,6 +7,7 @@ namespace BowlingGame
     {
         private List<List<int>> frames = new List<List<int>>();
 
+        // Enregistrement des lancers pour une frame
         public void Roll(List<int> frameRolls)
         {
             int currentFrameIndex = frames.Count;
@@ -15,6 +15,7 @@ namespace BowlingGame
             frames.Add(frameRolls);
         }
 
+        // Calcul du score total après avoir enregistré toutes les frames
         public int Score()
         {
             if (frames.Count < 10)
@@ -28,6 +29,7 @@ namespace BowlingGame
 
             int score = 0;
 
+            // Calcul du score pour chaque frame
             for (int frame = 0; frame < frames.Count; frame++)
             {
                 var frameRolls = frames[frame];
@@ -36,6 +38,7 @@ namespace BowlingGame
                     throw new Exception($"La frame {frame + 1} est incomplète.");
                 }
 
+                // Vérification des strikes, spares ou frames normales
                 if (IsStrike(frameRolls))
                 {
                     score += 10 + StrikeBonus(frame);
@@ -57,23 +60,26 @@ namespace BowlingGame
             return score;
         }
 
+        // Vérifie si une frame est un strike
         private bool IsStrike(List<int> frameRolls)
         {
             return frameRolls.Count > 0 && frameRolls[0] == 10;
         }
 
+        // Vérifie si une frame est un spare
         private bool IsSpare(List<int> frameRolls)
         {
             return frameRolls.Count > 1 && frameRolls[0] + frameRolls[1] == 10;
         }
 
+        // Calcul du bonus pour un strike
         private int StrikeBonus(int frameIndex)
         {
             if (frameIndex == 9)
             {
                 if (frames[frameIndex].Count < 3)
                 {
-                    throw new Exception($"La frame {frameIndex + 1} semi-incomplète pour un strike.");
+                    throw new Exception($"La frame {frameIndex + 1} est semi-incomplète pour un strike.");
                 }
                 return frames[frameIndex][1] + frames[frameIndex][2];
             }
@@ -97,6 +103,7 @@ namespace BowlingGame
             return 0;
         }
 
+        // Calcul du bonus pour un spare
         private int SpareBonus(int frameIndex)
         {
             if (frameIndex == 9)
@@ -115,6 +122,7 @@ namespace BowlingGame
             return 0;
         }
 
+        // Somme des quilles dans une frame
         private int SumOfBallsInFrame(List<int> frameRolls)
         {
             int sum = 0;
@@ -125,6 +133,7 @@ namespace BowlingGame
             return sum;
         }
 
+        // Validation des lancers d'une frame
         private void ValidateFrameRolls(List<int> frameRolls, int frameIndex)
         {
             if (frames.Count < 9 && frameRolls.Count > 1 && frameRolls[0] == 10)
@@ -160,6 +169,10 @@ namespace BowlingGame
                 if (roll > 10)
                 {
                     throw new Exception($"La frame {frameIndex + 1} doit seulement contenir des nombres ne dépassant pas 10. Valeur trouvée: {roll}.");
+                }
+                if (roll != (int)roll)
+                {
+                    throw new Exception($"La frame {frameIndex + 1} doit seulement contenir des nombres entiers. Valeur trouvée: {roll}.");
                 }
             }
         }

@@ -74,12 +74,12 @@ namespace SpecFlowBowlingGame.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie complète avec seulement des strikes et des spares")]
-        public virtual void PartieCompleteAvecSeulementDesStrikesEtDesSpares()
+        [NUnit.Framework.DescriptionAttribute("Partie avec seulement des strikes et des spares")]
+        public virtual void PartieAvecSeulementDesStrikesEtDesSpares()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie complète avec seulement des strikes et des spares", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec seulement des strikes et des spares", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -153,12 +153,12 @@ testRunner.And("le score total de Joueur 2 devrait être 191", ((string)(null)),
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie complète sans strikes ni spares")]
-        public virtual void PartieCompleteSansStrikesNiSpares()
+        [NUnit.Framework.DescriptionAttribute("Partie sans strikes ni spares")]
+        public virtual void PartieSansStrikesNiSpares()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie complète sans strikes ni spares", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie sans strikes ni spares", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -232,12 +232,12 @@ testRunner.And("le score total de Joueur 2 devrait être 80", ((string)(null)), 
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie complète avec un spare")]
-        public virtual void PartieCompleteAvecUnSpare()
+        [NUnit.Framework.DescriptionAttribute("Partie avec un spare")]
+        public virtual void PartieAvecUnSpare()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie complète avec un spare", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un spare", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 22
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -311,12 +311,12 @@ testRunner.And("le score total de Joueur 2 devrait être 84", ((string)(null)), 
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie complète avec un strike")]
-        public virtual void PartieCompleteAvecUnStrike()
+        [NUnit.Framework.DescriptionAttribute("Partie avec un strike")]
+        public virtual void PartieAvecUnStrike()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie complète avec un strike", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un strike", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 31
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -390,12 +390,12 @@ testRunner.And("le score total de Joueur 2 devrait être 91", ((string)(null)), 
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie complète avec une frame incomplète")]
-        public virtual void PartieCompleteAvecUneFrameIncomplete()
+        [NUnit.Framework.DescriptionAttribute("Partie avec une frame incomplète")]
+        public virtual void PartieAvecUneFrameIncomplete()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie complète avec une frame incomplète", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec une frame incomplète", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 40
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -460,23 +460,23 @@ testRunner.When("les lancers des joueurs sont:", ((string)(null)), table5, "When
 #line hidden
 #line 46
 testRunner.Then("une erreur devrait se déclencher pour Joueur 1 avec le message \"Frame 10 incomplè" +
-                        "te détectée\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                        "te détectée.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 47
 testRunner.And("une erreur devrait se déclencher pour Joueur 2 avec le message \"Frame 2 incomplèt" +
-                        "e détectée\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                        "e détectée.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie complète avec une frame semi-incomplète")]
-        public virtual void PartieCompleteAvecUneFrameSemi_Incomplete()
+        [NUnit.Framework.DescriptionAttribute("Partie avec une frame semi-incomplète")]
+        public virtual void PartieAvecUneFrameSemi_Incomplete()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie complète avec une frame semi-incomplète", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec une frame semi-incomplète", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 49
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -552,12 +552,12 @@ testRunner.And("une erreur devrait se déclencher pour Joueur 2 avec le message 
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Partie complète avec une frame dont il y a plus de lancers que nécessaire")]
-        public virtual void PartieCompleteAvecUneFrameDontIlYAPlusDeLancersQueNecessaire()
+        [NUnit.Framework.DescriptionAttribute("Partie avec une frame dont il y a plus de lancers que nécessaire")]
+        public virtual void PartieAvecUneFrameDontIlYAPlusDeLancersQueNecessaire()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie complète avec une frame dont il y a plus de lancers que nécessaire", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec une frame dont il y a plus de lancers que nécessaire", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 58
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -627,6 +627,165 @@ testRunner.Then("une erreur devrait se déclencher pour Joueur 1 avec le message
 #line 65
 testRunner.And("une erreur devrait se déclencher pour Joueur 2 avec le message \"Frame 2 contient " +
                         "trop de lancers.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Partie avec un nombre de frames supérieur a 10")]
+        public virtual void PartieAvecUnNombreDeFramesSuperieurA10()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un nombre de frames supérieur a 10", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 68
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 69
+testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "frame 1",
+                            "frame 2",
+                            "frame 3",
+                            "frame 4",
+                            "frame 5",
+                            "frame 6",
+                            "frame 7",
+                            "frame 8",
+                            "frame 9",
+                            "frame 10",
+                            "frame 11",
+                            "frame 12"});
+                table8.AddRow(new string[] {
+                            "Joueur 1",
+                            "10",
+                            "3",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4"});
+                table8.AddRow(new string[] {
+                            "Joueur 2",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4"});
+#line 70
+testRunner.When("les lancers des joueurs sont:", ((string)(null)), table8, "When ");
+#line hidden
+#line 74
+testRunner.Then("une erreur devrait se déclencher pour Joueur 1 avec le message \"Le nombre de fram" +
+                        "es doit être exactement 10, mais il y a 12 frames.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 75
+testRunner.And("une erreur devrait se déclencher pour Joueur 2 avec le message \"Le nombre de fram" +
+                        "es doit être exactement 10, mais il y a 12 frames.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Partie avec un nombre de frames inferieur a 10")]
+        public virtual void PartieAvecUnNombreDeFramesInferieurA10()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec un nombre de frames inferieur a 10", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 78
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 79
+testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "frame 1",
+                            "frame 2",
+                            "frame 3",
+                            "frame 4",
+                            "frame 5",
+                            "frame 6",
+                            "frame 7"});
+                table9.AddRow(new string[] {
+                            "Joueur 1",
+                            "10",
+                            "3",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4"});
+                table9.AddRow(new string[] {
+                            "Joueur 2",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4"});
+#line 80
+testRunner.When("les lancers des joueurs sont:", ((string)(null)), table9, "When ");
+#line hidden
+#line 84
+testRunner.Then("une erreur devrait se déclencher pour Joueur 1 avec le message \"Le nombre de fram" +
+                        "es doit être exactement 10, mais il y a seulement 7 frames.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 85
+testRunner.And("une erreur devrait se déclencher pour Joueur 2 avec le message \"Le nombre de fram" +
+                        "es doit être exactement 10, mais il y a seulement 7 frames.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

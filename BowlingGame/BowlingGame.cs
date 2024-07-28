@@ -23,14 +23,23 @@ namespace BowlingGame
 
         public int Score()
         {
+            if (frames.Count < 10)
+            {
+                throw new Exception($"Le nombre de frames doit être exactement 10, mais il y a seulement {frames.Count} frames.");
+            }
+            if (frames.Count > 10)
+            {
+                throw new Exception($"Le nombre de frames doit être exactement 10, mais il y a {frames.Count} frames.");
+            }
+
             int score = 0;
 
-            for (int frame = 0; frame < frames.Count && frame < 10; frame++)
+            for (int frame = 0; frame < frames.Count; frame++)
             {
                 var frameRolls = frames[frame];
                 if (frameRolls.Count == 0)
                 {
-                    throw new Exception($"Frame {frame + 1} incomplète détectée");
+                    throw new Exception($"Frame {frame + 1} incomplète détectée.");
                 }
 
                 if (IsStrike(frameRolls))

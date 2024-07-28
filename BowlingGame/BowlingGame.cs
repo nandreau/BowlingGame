@@ -10,14 +10,8 @@ namespace BowlingGame
 
         public void Roll(List<int> frameRolls)
         {
-            if (frames.Count < 9 && frameRolls.Count > 1 && frameRolls[0] == 10)
-            {
-                throw new Exception($"Frame {frames.Count + 1} contient trop de lancers pour un strike.");
-            }
-            if (frameRolls.Count > 3 || (frames.Count < 9 && frameRolls.Count > 2))
-            {
-                throw new Exception($"Frame {frames.Count + 1} contient trop de lancers.");
-            }
+            int currentFrameIndex = frames.Count;
+            ValidateFrameRolls(frameRolls, currentFrameIndex);
             frames.Add(frameRolls);
         }
 
@@ -39,7 +33,7 @@ namespace BowlingGame
                 var frameRolls = frames[frame];
                 if (frameRolls.Count == 0)
                 {
-                    throw new Exception($"Frame {frame + 1} incomplète détectée.");
+                    throw new Exception($"La frame {frame + 1} est incomplète.");
                 }
 
                 if (IsStrike(frameRolls))
@@ -54,7 +48,7 @@ namespace BowlingGame
                 {
                     if (frameRolls.Count != 2)
                     {
-                        throw new Exception($"Frame {frame + 1} semi-incomplète détectée.");
+                        throw new Exception($"La frame {frame + 1} est semi-incomplète.");
                     }
                     score += SumOfBallsInFrame(frameRolls);
                 }
@@ -79,7 +73,7 @@ namespace BowlingGame
             {
                 if (frames[frameIndex].Count < 3)
                 {
-                    throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un strike.");
+                    throw new Exception($"La frame {frameIndex + 1} semi-incomplète pour un strike.");
                 }
                 return frames[frameIndex][1] + frames[frameIndex][2];
             }
@@ -109,7 +103,7 @@ namespace BowlingGame
             {
                 if (frames[frameIndex].Count < 3)
                 {
-                    throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un spare.");
+                    throw new Exception($"La frame {frameIndex + 1} est semi-incomplète pour un spare.");
                 }
                 return frames[frameIndex][2];
             }
@@ -129,6 +123,45 @@ namespace BowlingGame
                 sum += roll;
             }
             return sum;
+        }
+
+        private void ValidateFrameRolls(List<int> frameRolls, int frameIndex)
+        {
+            if (frames.Count < 9 && frameRolls.Count > 1 && frameRolls[0] == 10)
+            {
+                throw new Exception($"La frame {frames.Count + 1} contient trop de lancers pour un strike.");
+            }
+            else if (frameRolls.Count > 3 || (frames.Count < 9 && frameRolls.Count > 2))
+            {
+                throw new Exception($"La frame {frames.Count + 1} contient trop de lancers.");
+            }
+
+            if (frameIndex == 9)
+            {
+                if (SumOfBallsInFrame(frameRolls) > 30)
+                {
+                    throw new Exception($"Le total des quilles pour la frame 10 ne peut pas dépasser 30. Total trouvé: {SumOfBallsInFrame(frameRolls)}.");
+                }
+            }
+            else
+            {
+                if (SumOfBallsInFrame(frameRolls) > 10)
+                {
+                    throw new Exception($"Le total des quilles pour la frame {frameIndex + 1} ne peut pas dépasser 10. Total trouvé: {SumOfBallsInFrame(frameRolls)}.");
+                }
+            }
+
+            foreach (var roll in frameRolls)
+            {
+                if (roll < 0)
+                {
+                    throw new Exception($"La frame {frameIndex + 1} doit seulement contenir des nombres positifs. Valeur trouvée: {roll}.");
+                }
+                if (roll > 10)
+                {
+                    throw new Exception($"La frame {frameIndex + 1} doit seulement contenir des nombres ne dépassant pas 10. Valeur trouvée: {roll}.");
+                }
+            }
         }
     }
 }

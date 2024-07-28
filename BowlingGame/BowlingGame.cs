@@ -75,64 +75,50 @@ namespace BowlingGame
 
         private int StrikeBonus(int frameIndex)
         {
-            try
+            if (frameIndex == 9)
             {
-                if (frameIndex == 9) // Special case for the 10th frame
+                if (frames[frameIndex].Count < 3)
                 {
-                    if (frames[frameIndex].Count < 3)
-                    {
-                        throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un strike.");
-                    }
-                    return frames[frameIndex][1] + frames[frameIndex][2];
+                    throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un strike.");
                 }
+                return frames[frameIndex][1] + frames[frameIndex][2];
+            }
 
-                if (frameIndex + 1 < frames.Count)
-                {
-                    var nextFrame = frames[frameIndex + 1];
-                    if (nextFrame.Count > 1)
-                    {
-                        return nextFrame[0] + nextFrame[1];
-                    }
-                    else if (nextFrame.Count == 1 && frameIndex + 2 < frames.Count)
-                    {
-                        return nextFrame[0] + frames[frameIndex + 2][0];
-                    }
-                    else if (nextFrame.Count == 1)
-                    {
-                        return nextFrame[0] + frames[frameIndex + 1][1];
-                    }
-                }
-                return 0;
-            }
-            catch (ArgumentOutOfRangeException)
+            if (frameIndex + 1 < frames.Count)
             {
-                throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un strike.");
+                var nextFrame = frames[frameIndex + 1];
+                if (nextFrame.Count > 1)
+                {
+                    return nextFrame[0] + nextFrame[1];
+                }
+                else if (nextFrame.Count == 1 && frameIndex + 2 < frames.Count)
+                {
+                    return nextFrame[0] + frames[frameIndex + 2][0];
+                }
+                else if (nextFrame.Count == 1)
+                {
+                    return nextFrame[0] + frames[frameIndex + 1][1];
+                }
             }
+            return 0;
         }
 
         private int SpareBonus(int frameIndex)
         {
-            try
+            if (frameIndex == 9)
             {
-                if (frameIndex == 9) // Special case for the 10th frame
+                if (frames[frameIndex].Count < 3)
                 {
-                    if (frames[frameIndex].Count < 3)
-                    {
-                        throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un spare.");
-                    }
-                    return frames[frameIndex][2];
+                    throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un spare.");
                 }
+                return frames[frameIndex][2];
+            }
 
-                if (frameIndex + 1 < frames.Count)
-                {
-                    return frames[frameIndex + 1][0];
-                }
-                return 0;
-            }
-            catch (ArgumentOutOfRangeException)
+            if (frameIndex + 1 < frames.Count)
             {
-                throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un spare.");
+                return frames[frameIndex + 1][0];
             }
+            return 0;
         }
 
         private int SumOfBallsInFrame(List<int> frameRolls)

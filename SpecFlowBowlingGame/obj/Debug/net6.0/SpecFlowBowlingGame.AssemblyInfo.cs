@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpecFlowBowlingGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0002ff252ae2fb35c480625648d1fe62084e300e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e2515e364e38ed76dcee65db495089e5880201f")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpecFlowBowlingGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpecFlowBowlingGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace BowlingGame
 {
@@ -69,7 +70,7 @@ namespace BowlingGame
         // Vérifie si une frame est un spare
         private bool IsSpare(List<int> frameRolls)
         {
-            return frameRolls.Count > 1 && frameRolls[0] + frameRolls[1] == 10;
+            return frameRolls.Count > 1 && frameRolls[0] + frameRolls[1] >= 10 && frameRolls[0] != 10;
         }
 
         // Calcul du bonus pour un strike
@@ -147,9 +148,15 @@ namespace BowlingGame
 
             if (frameIndex == 9)
             {
-                if (SumOfBallsInFrame(frameRolls) > 30)
+                Console.Write(JsonSerializer.Serialize(frameRolls));
+                Console.WriteLine(SumOfBallsInFrame(frameRolls));
+                if (IsStrike(frameRolls) && SumOfBallsInFrame(frameRolls) > 30)
                 {
-                    throw new Exception($"Le total des quilles pour la frame 10 ne peut pas dépasser 30. Total trouvé: {SumOfBallsInFrame(frameRolls)}.");
+                    throw new Exception($"Le total des quilles pour la frame 10 ne peut pas dépasser 30 s'il y a un strike. Total trouvé: {SumOfBallsInFrame(frameRolls)}.");
+                }
+                else if (IsSpare(frameRolls) && SumOfBallsInFrame(frameRolls) > 20)
+                {
+                    throw new Exception($"Le total des quilles pour la frame 10 ne peut pas dépasser 20 s'il y a un spare. Total trouvé: {SumOfBallsInFrame(frameRolls)}.");
                 }
             }
             else
@@ -169,10 +176,6 @@ namespace BowlingGame
                 if (roll > 10)
                 {
                     throw new Exception($"La frame {frameIndex + 1} doit seulement contenir des nombres ne dépassant pas 10. Valeur trouvée: {roll}.");
-                }
-                if (roll != (int)roll)
-                {
-                    throw new Exception($"La frame {frameIndex + 1} doit seulement contenir des nombres entiers. Valeur trouvée: {roll}.");
                 }
             }
         }

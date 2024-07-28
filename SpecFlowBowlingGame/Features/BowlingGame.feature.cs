@@ -999,17 +999,35 @@ testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechT
                             "4, 4",
                             "4, 4",
                             "4, 4",
+                            "4, 7, 10"});
+                table12.AddRow(new string[] {
+                            "Joueur 3",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
+                            "4, 4",
                             "10, 10, 11"});
 #line 103
 testRunner.When("les lancers des joueurs sont:", ((string)(null)), table12, "When ");
 #line hidden
-#line 107
+#line 108
 testRunner.Then("une erreur devrait se déclencher pour Joueur 1 avec le message \"Le total des quil" +
                         "les pour la frame 1 ne peut pas dépasser 10. Total trouvé: 11.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 108
+#line 109
 testRunner.And("une erreur devrait se déclencher pour Joueur 2 avec le message \"Le total des quil" +
-                        "les pour la frame 10 ne peut pas dépasser 30. Total trouvé: 31.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                        "les pour la frame 10 ne peut pas dépasser 20 s\'il y a un spare. Total trouvé: 21" +
+                        ".\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 110
+testRunner.And("une erreur devrait se déclencher pour Joueur 3 avec le message \"Le total des quil" +
+                        "les pour la frame 10 ne peut pas dépasser 30 s\'il y a un strike. Total trouvé: 3" +
+                        "1.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -1022,7 +1040,7 @@ testRunner.And("une erreur devrait se déclencher pour Joueur 2 avec le message 
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Partie avec une frame dont la nombre de quilles tombés est incorrecte", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 110
+#line 112
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -1042,7 +1060,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 111
+#line 113
 testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1081,14 +1099,14 @@ testRunner.Given("un nouveau jeu de bowling commence", ((string)(null)), ((TechT
                             "4, 4",
                             "4, 4",
                             "4, 4"});
-#line 112
+#line 114
 testRunner.When("les lancers des joueurs sont:", ((string)(null)), table13, "When ");
 #line hidden
-#line 116
+#line 118
 testRunner.Then("une erreur devrait se déclencher pour Joueur 1 avec le message \"La frame 1 doit s" +
                         "eulement contenir des nombres positifs. Valeur trouvée: -1.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 117
+#line 119
 testRunner.And("une erreur devrait se déclencher pour Joueur 2 avec le message \"La frame 2 doit s" +
                         "eulement contenir des nombres ne dépassant pas 10. Valeur trouvée: 14.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

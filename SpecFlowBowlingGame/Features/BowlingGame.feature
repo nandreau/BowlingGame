@@ -103,9 +103,11 @@ Given un nouveau jeu de bowling commence
 When les lancers des joueurs sont:
 | name     | frame 1 | frame 2 | frame 3 | frame 4 | frame 5 | frame 6 | frame 7 | frame 8 | frame 9 | frame 10      |
 | Joueur 1 | 4, 7    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4          |
-| Joueur 2 | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 10, 10, 11    |
+| Joueur 2 | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 7, 10      |
+| Joueur 3 | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 4, 4    | 10, 10, 11    |
 Then une erreur devrait se déclencher pour Joueur 1 avec le message "Le total des quilles pour la frame 1 ne peut pas dépasser 10. Total trouvé: 11."
-And une erreur devrait se déclencher pour Joueur 2 avec le message "Le total des quilles pour la frame 10 ne peut pas dépasser 30. Total trouvé: 31."
+And une erreur devrait se déclencher pour Joueur 2 avec le message "Le total des quilles pour la frame 10 ne peut pas dépasser 20 s'il y a un spare. Total trouvé: 21."
+And une erreur devrait se déclencher pour Joueur 3 avec le message "Le total des quilles pour la frame 10 ne peut pas dépasser 30 s'il y a un strike. Total trouvé: 31."
 
 Scenario: Partie avec une frame dont la nombre de quilles tombés est incorrecte
 Given un nouveau jeu de bowling commence

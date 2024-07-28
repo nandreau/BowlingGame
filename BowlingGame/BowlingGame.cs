@@ -1,78 +1,139 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.Json;
 
 namespace BowlingGame
 {
     public class BowlingGame
     {
-        private List<int> rolls = new List<int>();
+        private List<List<int>> frames = new List<List<int>>();
 
-        public void Roll(int pins)
+        public void Roll(List<int> frameRolls)
         {
-            rolls.Add(pins);
+            if (frames.Count < 9 && frameRolls.Count > 1 && frameRolls[0] == 10)
+            {
+                throw new Exception($"Frame {frames.Count + 1} contient trop de lancers pour un strike.");
+            }
+            if (frameRolls.Count > 3 || (frames.Count < 9 && frameRolls.Count > 2))
+            {
+                throw new Exception($"Frame {frames.Count + 1} contient trop de lancers.");
+            }
+            frames.Add(frameRolls);
         }
 
         public int Score()
         {
             int score = 0;
-            int rollIndex = 0;
-            for (int frame = 0; frame < 10; frame++)
-            {
-                if (rollIndex >= rolls.Count) break;
 
-                if (IsStrike(rollIndex))
+            for (int frame = 0; frame < frames.Count && frame < 10; frame++)
+            {
+                var frameRolls = frames[frame];
+                if (frameRolls.Count == 0)
                 {
-                    score += 10 + StrikeBonus(rollIndex);
-                    rollIndex++;
+                    throw new Exception($"Frame {frame + 1} incomplète détectée");
                 }
-                else if (IsSpare(rollIndex))
+
+                if (IsStrike(frameRolls))
                 {
-                    score += 10 + SpareBonus(rollIndex);
-                    rollIndex += 2;
+                    score += 10 + StrikeBonus(frame);
+                }
+                else if (IsSpare(frameRolls))
+                {
+                    score += 10 + SpareBonus(frame);
                 }
                 else
                 {
-                    score += SumOfBallsInFrame(rollIndex);
-                    rollIndex += 2;
+                    if (frameRolls.Count != 2)
+                    {
+                        throw new Exception($"Frame {frame + 1} semi-incomplète détectée.");
+                    }
+                    score += SumOfBallsInFrame(frameRolls);
                 }
             }
+
             return score;
         }
 
-        private bool IsStrike(int rollIndex)
+        private bool IsStrike(List<int> frameRolls)
         {
-            return rollIndex < rolls.Count && rolls[rollIndex] == 10;
+            return frameRolls.Count > 0 && frameRolls[0] == 10;
         }
 
-        private bool IsSpare(int rollIndex)
+        private bool IsSpare(List<int> frameRolls)
         {
-            return rollIndex + 1 < rolls.Count && rolls[rollIndex] + rolls[rollIndex + 1] == 10;
+            return frameRolls.Count > 1 && frameRolls[0] + frameRolls[1] == 10;
         }
 
-        private int StrikeBonus(int rollIndex)
+        private int StrikeBonus(int frameIndex)
         {
-            if (rollIndex + 2 < rolls.Count)
+            try
             {
-                return rolls[rollIndex + 1] + rolls[rollIndex + 2];
+                if (frameIndex == 9) // Special case for the 10th frame
+                {
+                    if (frames[frameIndex].Count < 3)
+                    {
+                        throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un strike.");
+                    }
+                    return frames[frameIndex][1] + frames[frameIndex][2];
+                }
+
+                if (frameIndex + 1 < frames.Count)
+                {
+                    var nextFrame = frames[frameIndex + 1];
+                    if (nextFrame.Count > 1)
+                    {
+                        return nextFrame[0] + nextFrame[1];
+                    }
+                    else if (nextFrame.Count == 1 && frameIndex + 2 < frames.Count)
+                    {
+                        return nextFrame[0] + frames[frameIndex + 2][0];
+                    }
+                    else if (nextFrame.Count == 1)
+                    {
+                        return nextFrame[0] + frames[frameIndex + 1][1];
+                    }
+                }
+                return 0;
             }
-            return 0;
+            catch (ArgumentOutOfRangeException)
+            {
+                throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un strike.");
+            }
         }
 
-        private int SpareBonus(int rollIndex)
+        private int SpareBonus(int frameIndex)
         {
-            if (rollIndex + 2 < rolls.Count)
+            try
             {
-                return rolls[rollIndex + 2];
+                if (frameIndex == 9) // Special case for the 10th frame
+                {
+                    if (frames[frameIndex].Count < 3)
+                    {
+                        throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un spare.");
+                    }
+                    return frames[frameIndex][2];
+                }
+
+                if (frameIndex + 1 < frames.Count)
+                {
+                    return frames[frameIndex + 1][0];
+                }
+                return 0;
             }
-            return 0;
+            catch (ArgumentOutOfRangeException)
+            {
+                throw new Exception($"Frame {frameIndex + 1} semi-incomplète détectée à la frame {frameIndex + 1} pour un spare.");
+            }
         }
 
-        private int SumOfBallsInFrame(int rollIndex)
+        private int SumOfBallsInFrame(List<int> frameRolls)
         {
-            if (rollIndex + 1 < rolls.Count)
+            int sum = 0;
+            foreach (var roll in frameRolls)
             {
-                return rolls[rollIndex] + rolls[rollIndex + 1];
+                sum += roll;
             }
-            return rolls[rollIndex];
+            return sum;
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BowlingGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cdd32f818781d9ad9703577fc9f20e9342a5d5d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f81406e0e769e508bfbb5ae0e7b5765963a515ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("BowlingGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BowlingGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
